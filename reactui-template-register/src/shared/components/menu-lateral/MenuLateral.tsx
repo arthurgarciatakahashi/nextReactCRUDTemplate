@@ -2,14 +2,42 @@ import { Avatar, Divider, Drawer, useTheme, List, ListItemButton, ListItemIcon, 
 import { Box } from "@mui/system";
 import React from "react";
 import { useDrawerContext } from "../../contexts";
+import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
+
+interface IListItemLink {
+    to: string;
+    icon: string;
+    label: string;
+    onClick: (() => void) | undefined;
+};
 
 interface IMenuLateral {
     children: React.ReactNode;
-}
+};
+
+const ListItemLink: React.FC<IListItemLink> = ({ to, icon, label, onClick }) => {
+
+    const navigate = useNavigate();
+    const resolvedPath = useResolvedPath(to);
+    const match = useMatch({ path: resolvedPath.pathname, end: false });
+    const handleClick = () => {
+        navigate(to);
+        onClick?.();
+    };
+    return (
+        <ListItemButton selected={!!match} onClick={handleClick}>
+            <ListItemIcon>
+                <Icon>{icon}</Icon>
+            </ListItemIcon>
+            <ListItemText primary={label} />
+        </ListItemButton>
+    );
+};
+
 export const MenuLateral: React.FC<IMenuLateral> = ({ children }) => {
     const theme = useTheme();
     const smDown = useMediaQuery(theme.breakpoints.down("sm"));
-    const {isDrawerOpen, toggleDrawerOpen} = useDrawerContext();
+    const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
 
     return (
         <>
@@ -21,17 +49,17 @@ export const MenuLateral: React.FC<IMenuLateral> = ({ children }) => {
                             src="https://static.vecteezy.com/system/resources/previews/009/267/561/non_2x/user-icon-design-free-png.png"
                         />
                     </Box>
-                    <Divider/>
+                    <Divider />
                     <Box flex={1}>
                         <List component="nav">
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    <Icon>
-                                        home
-                                    </Icon>
-                                </ListItemIcon>
-                                <ListItemText primary="Página Inicial" />
-                            </ListItemButton>
+                            {drawerOptions.map(drawerOption => (
+                                <ListItemLink
+                                    to="/pagina-inicial"
+                                    icon="home"
+                                    label="Página Inicial"
+                                    onClick={smDown ? toggleDrawerOpen : undefined}
+                                />
+                            ))};
                         </List>
                     </Box>
                 </Box>
