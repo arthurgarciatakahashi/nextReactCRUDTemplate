@@ -54,9 +54,10 @@ export const MenuLateral: React.FC<IMenuLateral> = ({ children }) => {
                         <List component="nav">
                             {drawerOptions.map(drawerOption => (
                                 <ListItemLink
-                                    to="/pagina-inicial"
-                                    icon="home"
-                                    label="Página Inicial"
+                                    key={drawerOption.path}
+                                    to={drawerOption.path}
+                                    icon={drawerOption.icon}
+                                    label={drawerOption.label}
                                     onClick={smDown ? toggleDrawerOpen : undefined}
                                 />
                             ))};
