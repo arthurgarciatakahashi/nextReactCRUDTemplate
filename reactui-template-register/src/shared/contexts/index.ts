@@ -1,2 +1,2 @@
-export * from "./themeContext"
+export * from "./ThemeContext"
 export * from "./DrawerContext"
