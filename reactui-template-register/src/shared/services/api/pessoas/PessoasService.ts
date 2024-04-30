@@ -2,13 +2,13 @@ import { Environment } from "../../../environment";
 import { Api } from "../axios-config";
 
 
-interface IListagemPessoa {
+export interface IListagemPessoa {
     id: number;
     nomeCompleto: string;
     email: string;
     cidadeId: number;
 }
-interface IDetalhePessoa {
+export interface IDetalhePessoa {
     id: number;
     nomeCompleto: string;
     email: string;
@@ -25,6 +25,7 @@ const getAll = async (page = 1, filter = ""): Promise<IPessoasComTotalCount | Er
         const {data, headers} = await Api.get(urlRelativa);
 
         if (data) {
+            console.log(`busca OK com ${headers["x-total-count"]}`)
             return {
                 data,
                 totalCount: headers["x-total-count"] || Environment.LIMITE_DE_LINHAS,
