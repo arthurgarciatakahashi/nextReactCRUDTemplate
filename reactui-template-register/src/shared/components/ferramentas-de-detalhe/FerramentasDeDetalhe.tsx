@@ -96,7 +96,7 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
                 </Typography>
 
             </Button>)}
-            {(mostrarBotaoApagarCarregando && !smDown ) && (<Skeleton width={110} height={60} />)}
+            {(mostrarBotaoApagarCarregando && !smDown) && (<Skeleton width={110} height={60} />)}
 
             {mostrarBotaoNovo && !mostrarBotaoNovoCarregando && (<Button
                 variant="outlined"
@@ -115,7 +115,7 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
                 mostrarBotaoVoltar &&
                 (mostrarBotaoNovo || mostrarBotaoApagar || mostrarBotaoSalvar || mostrarBotaoSalvarEFechar)
             ) &&
-            (<Divider variant="middle" orientation="vertical" />)
+                (<Divider variant="middle" orientation="vertical" />)
             }
 
             {mostrarBotaoVoltar && !mostrarBotaoVoltarCarregando && (<Button
