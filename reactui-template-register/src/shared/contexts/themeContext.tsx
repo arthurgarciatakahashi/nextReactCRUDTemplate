@@ -1,4 +1,3 @@
-import { ThemeContext } from "@emotion/react";
 import { DarkTheme, LightTheme } from "../themes";
 import { createContext, useCallback, useContext, useMemo, useState } from "react";
 import { Box } from "@mui/system";
@@ -14,10 +13,10 @@ interface IThemeProviderProps {
     children: React.ReactNode
 }
 
-const themeContext = createContext({} as IThemeContextData);
+const ThemeContext = createContext({} as IThemeContextData);
 
 export const useAppThemeContext = () => {
-    return useContext(themeContext);
+    return useContext(ThemeContext);
 }
 
 export const AppThemeProvider: React.FC<IThemeProviderProps> = ({ children }) => {

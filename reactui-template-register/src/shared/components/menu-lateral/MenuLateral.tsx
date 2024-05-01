@@ -61,19 +61,17 @@ export const MenuLateral: React.FC<IMenuLateral> = ({ children }) => {
                                     label={drawerOption.label}
                                     onClick={smDown ? toggleDrawerOpen : undefined}
                                 />
-                            ))};
+                            ))}
                         </List>
                     </Box>
                     <Box>
                         <List component="nav">
-                            {drawerOptions.map(drawerOption => (
-                                <ListItemButton onClick={toggleTheme}>
-                                    <ListItemIcon>
-                                        <Icon>dark_mode</Icon>
-                                    </ListItemIcon>
-                                    <ListItemText primary="Alternar Tema" />
-                                </ListItemButton>
-                            ))}
+                            <ListItemButton onClick={toggleTheme}>
+                                <ListItemIcon>
+                                    <Icon>dark_mode</Icon>
+                                </ListItemIcon>
+                                <ListItemText primary="Alternar Tema" />
+                            </ListItemButton>
                         </List>
                     </Box>
                 </Box>
