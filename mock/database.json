@@ -116,5 +116,8 @@
       "nome": "Tramanduatei",
       "id": 7
     }
-  ]
+  ],
+  "auth": {
+    "accessToken": "aaaaaaaaaa.bbbbbbbbbb.cccccccccc"
+  }
 }
