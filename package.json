@@ -3,12 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "startApp": "BROWSER=none react-scripts start",
+    "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "mock": "json-server -w -p 3333 ./mock/database.json",
-    "eject": "react-scripts eject",
-    "start": "node server.js"
+    "eject": "react-scripts eject"  
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
